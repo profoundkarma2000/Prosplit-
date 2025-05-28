@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💪 Arnold Split Tracker</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Arnold Split</h1>
+                        <p>Professional Workout Tracker</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="streak-badge">
+                        <i class="fas fa-fire"></i>
+                        <span id="streak-count" aria-live="polite">0</span> day streak
+                    </div>
+                    <button class="profile-btn" aria-label="User Profile">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="overview-section card">
+                <div class="overview-content">
+                    <div class="overview-text">
+                        <h2>6-Day Arnold Split Program</h2>
+                        <p class="description">Follow Arnold Schwarzenegger's legendary training split focusing on high volume and intensity.
+                           This program targets each muscle group twice per week with dedicated push, pull, and leg days.</p>
+
+                        <div class="tips-card">
+                            <h3><i class="fas fa-lightbulb"></i> Training Tips</h3>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Warm up with 5-10 minutes of light cardio and dynamic stretching</li>
+                                <li><i class="fas fa-check-circle"></i> Focus on progressive overload - increase weight or reps weekly</li>
+                                <li><i class="fas fa-check-circle"></i> Rest 48-72 hours between training the same muscle groups</li>
+                                <li><i class="fas fa-check-circle"></i> Maintain proper form and controlled tempo throughout each rep</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="progress-circle-container" id="weekly-progress-circle-container">
+                        <div class="progress-circle">
+                            <svg viewBox="0 0 36 36">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none"/>
+                                <path id="progress-path" class="circle-progress" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="0, 100"/>
+                            </svg>
+                            <div class="progress-text">
+                                <span id="completed-days" aria-live="polite">0</span>/<span id="total-days">6</span>
+                                <small>Days</small>
+                            </div>
+                        </div>
+                        <p class="progress-caption">Weekly Progress</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="day-selector-section card">
+                <h3>Select Workout Day</h3>
+                <div class="day-selector" id="day-selector">
+                    </div>
+            </section>
+
+            <section class="workout-content card" id="workout-content">
+                <div class="workout-header">
+                    <div class="workout-info">
+                        <h2 id="workout-title">Select a workout day</h2>
+                        <p id="workout-description">Choose a day to view exercises</p>
+                    </div>
+                    <div class="workout-progress-overview">
+                        <div class="progress-info">
+                            <div>Progress</div>
+                            <div id="exercise-progress" aria-live="polite">0/0</div>
+                        </div>
+                        <div class="workout-icon" id="workout-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exercises-container" id="exercises-container">
+                    </div>
+            </section>
+
+            <div class="section-separator">
+                <span>+</span>
+            </div>
+
+            <section class="cardio-section card">
+                <h3>Cardio Session</h3>
+                <div class="cardio-controls">
+                    <select id="cardio-equipment" class="cardio-select" aria-label="Select cardio equipment">
+                        <option value="">Select Equipment</option>
+                        <option value="bike">Bike (40 min)</option>
+                        <option value="treadmill">Treadmill (30 min)</option>
+                        <option value="stairmaster">Stairmaster (20 min)</option>
+                    </select>
+
+                    <div id="timer-display" class="timer-display">00:00</div>
+
+                    <div class="timer-buttons">
+                        <button id="start-timer-btn" disabled>Start</button>
+                        <button id="pause-timer-btn" disabled>Pause</button>
+                        <button id="reset-timer-btn" disabled>Reset</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="progress-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="progress-section progress-bar-container">
+                    <div class="progress-label">
+                        <span>Workout Progress</span>
+                        <span id="footer-progress" aria-live="polite">0/0 exercises</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <div class="cardio-status" id="cardio-status">Cardio: Not Selected</div>
+                    <div class="completion-message" id="completion-message" style="display: none;">
+                        All exercises completed! 🚀
+                    </div>
+                </div>
+                <div class="footer-actions">
+                    <button class="reset-btn" id="reset-btn" aria-label="Reset Workout Progress">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                    <button class="complete-btn" id="complete-btn" aria-label="Mark Workout as Complete">
+                        <i class="fas fa-check"></i> Complete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="confetti-container" id="confetti-container"></div>
+    <div class="celebration-popup" id="celebration-popup">
+        <div class="popup-content">
+            <div class="celebration-emoji">🎉</div>
+            <h3>Workout Complete!</h3>
+            <p>Amazing work! You've crushed another workout! 💪</p>
+            <div class="emoji-row">
+                <span>🔥</span>
+                <span>💪</span>
+                <span>⭐</span>
+            </div>
+            <button class="close-popup-btn" id="close-popup-btn" aria-label="Close celebration popup">Got it!</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
