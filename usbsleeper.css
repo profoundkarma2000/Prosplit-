@@ -1,0 +1,1106 @@
+/* General Styling */
+:root {
+    --primary-color: #00D4AA; /* Teal */
+    --secondary-color: #2D2D2D; /* Dark Gray */
+    --background-color: #1A1A1A; /* Black */
+    --card-background: #252525; /* Slightly lighter black for cards */
+    --text-color: #E0E0E0; /* Light Gray */
+    --light-text-color: #A0A0A0; /* Lighter Gray for descriptions */
+    --border-color: #3A3A3A; /* Darker border */
+    --highlight-color: #FFA500; /* Orange for streaks/highlights */
+    --success-color: #00D4AA; /* Teal for success */
+    --error-color: #FF6B6B; /* Red for errors/reset */
+    --completed-color: #FFD700; /* Gold/Yellow for completion */
+
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 20px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+
+    --border-radius: 12px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --inner-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--spacing-lg);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+h1, h2, h3 {
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: 2.2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.4em; }
+
+p.description {
+    color: var(--light-text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Header */
+.header {
+    background-color: var(--card-background);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo-icon {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.logo-text h1 {
+    margin-bottom: 0;
+    font-size: 1.8em;
+}
+
+.logo-text p {
+    color: var(--light-text-color);
+    font-size: 0.8em;
+    margin-top: -5px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.streak-badge {
+    background-color: var(--secondary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--highlight-color);
+}
+
+.streak-badge .fas {
+    color: var(--highlight-color);
+}
+
+.profile-btn {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+}
+
+.profile-btn:hover {
+    background-color: #00B28C; /* Slightly darker teal */
+    transform: scale(1.05);
+}
+
+/* Main Content */
+.main {
+    flex-grow: 1;
+    padding: var(--spacing-lg) 0;
+}
+
+/* Overview Section */
+.overview-section {
+    padding: var(--spacing-lg);
+    background-image: linear-gradient(135deg, var(--card-background) 0%, #303030 100%);
+    overflow: hidden;
+}
+
+.overview-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+.overview-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.tips-card {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--inner-shadow);
+}
+
+.tips-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.tips-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tips-card li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+    color: var(--light-text-color);
+}
+
+.tips-card li .fas {
+    color: var(--success-color);
+    margin-top: 3px; /* Align icon better with text */
+}
+
+/* Progress Circle */
+.progress-circle-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    padding-top: var(--spacing-md);
+}
+
+.progress-circle {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--inner-shadow);
+}
+
+.progress-circle svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-circle .circle-bg {
+    stroke: var(--border-color);
+    stroke-width: 2;
+}
+
+.progress-circle .circle-progress {
+    stroke: var(--primary-color);
+    stroke-width: 2;
+    transition: stroke-dasharray 0.5s ease-in-out, stroke 0.3s ease-in-out; /* Added stroke transition */
+}
+
+/* New: Progress circle color when all days are completed */
+.progress-circle.all-days-complete .circle-progress {
+    stroke: var(--completed-color);
+}
+.progress-circle.all-days-complete .progress-text {
+     color: var(--completed-color);
+}
+
+
+.progress-text {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.2em;
+    color: var(--text-color);
+    transition: color 0.3s ease-in-out; /* Added color transition */
+}
+
+.progress-text small {
+    font-size: 0.4em;
+    color: var(--light-text-color);
+    margin-top: -5px;
+    font-weight: 400;
+}
+
+.progress-caption {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    margin-top: var(--spacing-sm);
+}
+
+/* Day Selector */
+.day-selector-section {
+    padding: var(--spacing-lg);
+}
+
+.day-selector-section h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.day-selector {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.day-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: var(--inner-shadow);
+}
+
+.day-btn:hover {
+    background-color: #3A3A3A;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.day-btn.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color), var(--inner-shadow);
+    transform: scale(1.03);
+}
+
+.day-btn.completed {
+    background-color: #1a6f5e; /* Darker green for completed */
+    border-color: #1a6f5e;
+    color: var(--light-text-color);
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+.day-btn.completed:hover {
+    background-color: #1a6f5e;
+    border-color: #1a6f5e;
+    cursor: not-allowed;
+}
+
+
+/* Workout Content */
+.workout-content {
+    padding: var(--spacing-lg);
+    min-height: 400px;
+}
+
+.workout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+}
+
+.workout-info h2 {
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-color);
+}
+/* New: Workout title color when current day is complete */
+.workout-content.day-completed .workout-info h2 {
+    color: var(--completed-color);
+}
+
+
+.workout-progress-overview {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.workout-progress-overview .progress-info {
+    text-align: right;
+}
+
+.workout-progress-overview .progress-info div:first-child {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+}
+
+.workout-progress-overview .progress-info #exercise-progress {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--text-color);
+    transition: color 0.3s ease-in-out; /* Added color transition */
+}
+/* New: Exercise progress text color when current day is complete */
+.workout-content.day-completed .workout-progress-overview .progress-info #exercise-progress {
+    color: var(--completed-color);
+}
+
+
+.workout-icon {
+    font-size: 3em;
+    color: var(--primary-color);
+    transition: color 0.3s ease-in-out; /* Added transition */
+}
+/* New: Workout icon color when current day is complete */
+.workout-content.day-completed .workout-icon {
+    color: var(--completed-color);
+}
+
+
+.exercises-container {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.exercise-item {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    display: grid; /* Changed to grid for better layout control with new elements */
+    grid-template-columns: auto 1fr auto; /* Icon, Details, Checkbox/Info */
+    grid-template-rows: auto auto; /* For details and tips */
+    align-items: start; /* Align items to the top of their cells */
+    column-gap: var(--spacing-md);
+    transition: background-color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.exercise-item:hover {
+    background-color: #3A3A3A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.exercise-icon {
+    grid-column: 1;
+    grid-row: 1 / span 2; /* Spans across details and tips row */
+    font-size: 1.8em;
+    color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: var(--spacing-sm);
+    border-radius: var(--spacing-xs);
+}
+
+.exercise-details {
+    grid-column: 2;
+    grid-row: 1;
+    flex-grow: 1;
+}
+
+.exercise-details h4 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1em;
+}
+
+.exercise-details p {
+    color: var(--light-text-color);
+    font-size: 0.9em;
+}
+
+.exercise-actions { /* Container for checkbox and info button */
+    grid-column: 3;
+    grid-row: 1;
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.exercise-completion-checkbox {
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.exercise-completion-checkbox .fas {
+    color: var(--background-color);
+    font-size: 1.2em;
+    display: none; /* Hidden by default */
+}
+
+.exercise-item.completed {
+    background-color: #1a6f5e; /* Darker green for completed */
+    border-color: #1a6f5e;
+    opacity: 0.8;
+}
+
+.exercise-item.completed .exercise-completion-checkbox {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.exercise-item.completed .exercise-completion-checkbox .fas {
+    display: block; /* Show checkmark */
+}
+
+.exercise-item.completed h4,
+.exercise-item.completed p {
+    color: rgba(255, 255, 255, 0.7); /* Slightly faded text */
+    text-decoration: line-through;
+}
+
+/* NEW: Exercise Tips Button and Container */
+.info-button {
+    background: none;
+    border: 1px solid var(--light-text-color);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 0.9em;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    color: var(--light-text-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.info-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border-color: var(--primary-color);
+}
+
+.exercise-tips-container {
+    grid-column: 1 / span 3; /* Span across all columns */
+    grid-row: 2; /* Position in the second row */
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent background */
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm); /* Add some space from details */
+    border-radius: var(--border-radius);
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.exercise-tips-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.exercise-tips-container li {
+    font-size: 0.85em;
+    color: var(--light-text-color);
+    margin-bottom: var(--spacing-xs);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+}
+.exercise-tips-container li:last-child {
+    margin-bottom: 0;
+}
+
+.exercise-tips-container li .fas {
+    color: var(--success-color);
+    font-size: 0.9em;
+    margin-top: 2px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* NEW: Cardio Section Styling */
+.cardio-section h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.cardio-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.cardio-select {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: 1.1em;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    appearance: none; /* Remove default select styles */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23E0E0E0%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.4L146.2%20202.7%2018.8%2074.8a17.6%2017.6%200%200%0A0-25.3c-2.7-2.7-6.2-4-9.9-4s-7.2%201.3-9.9%204c-5.5%205.5-5.5%2014.2%200%2019.7l126.3%20126.3c5.5%205.5%2014.2%205.5%2019.7%200l126.3-126.3c5.5-5.5%205.5-14.2%200-19.7a17.6%2017.6%200%200%200-13-5.4z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+    padding-right: 30px; /* Make space for the arrow */
+}
+
+.timer-display {
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    min-width: 180px;
+    text-align: center;
+    box-shadow: var(--inner-shadow);
+}
+
+.timer-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.timer-buttons button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+    flex-grow: 1;
+    min-width: 100px;
+}
+
+.timer-buttons button:hover {
+    background-color: #00B28C;
+    transform: translateY(-2px);
+}
+
+.timer-buttons button:disabled {
+    background-color: var(--border-color);
+    color: var(--light-text-color);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Progress Footer */
+.progress-footer {
+    background-color: var(--card-background);
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.progress-section {
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.progress-label span:first-child {
+    color: var(--text-color);
+}
+
+.progress-label span:last-child {
+    color: var(--primary-color);
+    transition: color 0.3s ease-in-out; /* Added transition */
+}
+/* New: Footer progress text color when current day is complete */
+.progress-bar-container.day-completed .progress-label span:last-child {
+    color: var(--completed-color);
+}
+
+
+.progress-bar {
+    background-color: var(--secondary-color);
+    border-radius: 50px;
+    height: 10px;
+    overflow: hidden;
+    box-shadow: var(--inner-shadow);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    transition: width 0.4s ease-out, background-color 0.3s ease-in-out; /* Added background-color transition */
+}
+/* New: Footer progress bar color when current day is complete */
+.progress-bar-container.day-completed .progress-fill {
+    background-color: var(--completed-color);
+}
+
+
+.completion-message {
+    text-align: center;
+    margin-top: var(--spacing-xs);
+    color: var(--success-color);
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.footer-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.reset-btn, .complete-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reset-btn {
+    background-color: var(--error-color);
+    color: var(--background-color);
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+.reset-btn:hover {
+    background-color: #E65A5A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.complete-btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+.complete-btn:hover {
+    background-color: #00B28C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Confetti Celebration */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color); /* Default color */
+    opacity: 0;
+    animation: fadeOut ease-out forwards;
+    transform-origin: center center;
+    pointer-events: none;
+}
+
+.confetti.square { border-radius: 2px; }
+.confetti.circle { border-radius: 50%; }
+.confetti.triangle {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid var(--primary-color); /* Default color */
+    background-color: transparent;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+/* Celebration Popup */
+.celebration-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.celebration-popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-content {
+    background-color: var(--card-background);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid var(--primary-color);
+    position: relative;
+}
+
+.celebration-popup.show .popup-content {
+    transform: scale(1);
+}
+
+.celebration-emoji {
+    font-size: 4em;
+    margin-bottom: var(--spacing-sm);
+    animation: bounceIn 0.8s ease-out;
+}
+
+.popup-content h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.popup-content p {
+    color: var(--light-text-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.emoji-row {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.emoji-row span {
+    font-size: 2.5em;
+    animation: floatAndFade 2s infinite ease-in-out;
+}
+
+.emoji-row span:nth-child(1) { animation-delay: 0s; }
+.emoji-row span:nth-child(2) { animation-delay: 0.3s; }
+.emoji-row span:nth-child(3) { animation-delay: 0.6s; }
+
+.close-popup-btn {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.close-popup-btn:hover {
+    background-color: #00B28C;
+    transform: scale(1.05);
+}
+
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes floatAndFade {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Section Separator */
+.section-separator {
+    text-align: center;
+    margin: var(--spacing-lg) 0;
+}
+
+.section-separator span {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 2.5em;
+    font-weight: 700;
+    padding: 0 var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    line-height: 1; /* Adjust to center the plus sign vertically */
+}
+
+/* Cardio Status in Footer */
+.cardio-status {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    text-align: right;
+    margin-top: var(--spacing-xs);
+}
+
+.cardio-status.completed {
+    color: var(--success-color);
+}
+.cardio-status.in-progress {
+    color: var(--highlight-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content, .overview-content, .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .logo-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-text h1 {
+        font-size: 1.5em;
+    }
+
+    .logo-text p {
+        font-size: 0.7em;
+    }
+
+    .overview-text, .progress-circle-container {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .day-selector {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .day-btn {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .workout-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .workout-progress-overview {
+        margin-top: var(--spacing-md);
+        justify-content: center;
+    }
+
+    .footer-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .exercise-item {
+        grid-template-columns: auto 1fr auto; /* Keep 3 columns for smaller screens too */
+        grid-template-rows: auto auto auto; /* More rows for stacking */
+    }
+
+    .exercise-icon {
+        grid-column: 1;
+        grid-row: 1; /* Icon in first row */
+    }
+    .exercise-details {
+        grid-column: 2 / span 2; /* Details span remaining columns in first row */
+        grid-row: 1;
+        text-align: left;
+    }
+    .exercise-actions {
+        grid-column: 1 / span 3; /* Actions row below details */
+        grid-row: 2;
+        justify-content: flex-end; /* Align to the right */
+        padding-top: var(--spacing-sm); /* Space from details */
+    }
+    .exercise-completion-checkbox {
+        order: 2; /* Checkbox after info button */
+    }
+    .info-button {
+        order: 1; /* Info button first */
+    }
+    .exercise-tips-container {
+        grid-column: 1 / span 3;
+        grid-row: 3; /* Tips below actions */
+        margin-top: var(--spacing-sm);
+    }
+
+    .cardio-select {
+        max-width: unset;
+    }
+
+    .timer-buttons button {
+        min-width: unset; /* Allow buttons to shrink */
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .card {
+        padding: var(--spacing-md);
+    }
+
+    .logo-icon {
+        font-size: 2em;
+    }
+
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+
+    .progress-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .progress-text {
+        font-size: 1.8em;
+    }
+
+    .profile-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+}
